@@ -1,0 +1,29 @@
+<html>
+<head>
+<META HTTP-EQUIV="Refresh" CONTENT="300">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<title>CPU</title>
+</head>
+
+<style>
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    width: 380px;
+}
+</style>
+
+<body>
+<table>
+  <tr>
+  {% for cells in chars %}
+  	{% for cell in cells %}
+	<td><div style=" position: relative; height: 0; left: 110px; top: 70px; font-size: 35px; "><a href="/munin/{{ cell.site }}/{{ cell.service }}/">{{ cell.service }}</a></div><img src="/munin/{{ cell.site }}/{{ cell.service }}/{{ cell.char }}" width="380" ></td>
+	 {% endfor %}
+  </tr>
+  {% endfor %} 
+</table>
+</body>
+</html>
