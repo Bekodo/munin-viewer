@@ -6,8 +6,23 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
 </head>
 <body>
-<h2>{{ service }}</h2>
-<a href=/viewer/cpu>cpu</a> <a href=/viewer/memory>memory</a> <a href=/viewer/eth0>eth0</a> <a href=/viewer/load>load</a> <a href=/viewer/cpu2>cpu2</a>
+<p>
+{% if service == 'cpu' %}
+<a href=/viewer/cpu><b>cpu</b></a> <a href=/viewer/memory>memory</a> <a href=/viewer/eth0>eth0</a> <a href=/viewer/netstat>netstat</a> <a href=/viewer/load>load</a> <a href=/viewer/cpu2>cpu2</a>
+{% elif service == 'memory'  %}
+<a href=/viewer/cpu>cpu</a> <a href=/viewer/memory><b>memory</b></a> <a href=/viewer/eth0>eth0</a> <a href=/viewer/netstat>netstat</a> <a href=/viewer/load>load</a> <a href=/viewer/cpu2>cpu2</a>
+{% elif service == 'eth0' %}
+<a href=/viewer/cpu>cpu</a> <a href=/viewer/memory>memory</a> <a href=/viewer/eth0><b>eth0</b></a> <a href=/viewer/netstat>netstat</a> <a href=/viewer/load>load</a> <a href=/viewer/cpu2>cpu2</a>
+{% elif service == 'netstat' %}
+<a href=/viewer/cpu>cpu</a> <a href=/viewer/memory>memory</a> <a href=/viewer/eth0>eth0</a> <a href=/viewer/netstat><b>netstat</b></a> <a href=/viewer/load>load</a> <a href=/viewer/cpu2>cpu2</a>
+{% elif service == 'load'%}
+<a href=/viewer/cpu>cpu</a> <a href=/viewer/memory>memory</a> <a href=/viewer/eth0>eth0</a> <a href=/viewer/netstat>netstat</a> <a href=/viewer/load><b>load</b></a> <a href=/viewer/cpu2>cpu2</a>
+{% elif service == 'cpu2'%}
+<a href=/viewer/cpu>cpu</a> <a href=/viewer/memory>memory</a> <a href=/viewer/eth0>eth0</a> <a href=/viewer/netstat>netstat</a> <a href=/viewer/load>load</a> <a href=/viewer/cpu2><b>cpu2</b></a>
+{% else %}
+<a href=/viewer/cpu>cpu</a> <a href=/viewer/memory>memory</a> <a href=/viewer/eth0>eth0</a> <a href=/viewer/netstat>netstat</a> <a href=/viewer/load>load</a> <a href=/viewer/cpu2>cpu2</a>
+{% endif %}
+</p>
 <table>
   <tr>
   {% for cells in chars %}

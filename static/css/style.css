@@ -8,7 +8,7 @@ th, td {
     width: 380px;
 }
 a {
-	color: black;
+    color: black;
 }
 a:link {
     text-decoration: none;
@@ -21,4 +21,8 @@ a:hover {
 }
 a:active {
     text-decoration: underline;
+}
+p {
+    font-size: 30px;
+    text-align: center;
 }
