@@ -2,11 +2,11 @@
 <head>
 <META HTTP-EQUIV="Refresh" CONTENT="300">
 <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
-<title>CPU</title>
+<title>{{ service }}</title>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
 </head>
 <body>
-<h2>CpuUtilizartion</h2>
+<h2>{{ service }}</h2>
 <table>
   <tr>
   {% for cells in chars %}
