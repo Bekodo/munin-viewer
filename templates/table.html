@@ -3,19 +3,10 @@
 <META HTTP-EQUIV="Refresh" CONTENT="300">
 <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 <title>CPU</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css' }}">
 </head>
-
-<style>
-table {
-    border-collapse: collapse;
-}
-
-th, td {
-    width: 380px;
-}
-</style>
-
 <body>
+<h2>CpuUtilizartion</h2>
 <table>
   <tr>
   {% for cells in chars %}
@@ -23,7 +14,7 @@ th, td {
 	<td><div style=" position: relative; height: 0; left: 110px; top: 70px; font-size: 35px; "><a href="/munin/{{ cell.site }}/{{ cell.service }}/">{{ cell.service }}</a></div><img src="/munin/{{ cell.site }}/{{ cell.service }}/{{ cell.char }}" width="380" ></td>
 	 {% endfor %}
   </tr>
-  {% endfor %} 
+  {% endfor %}
 </table>
 </body>
 </html>
