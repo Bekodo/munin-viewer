@@ -2,7 +2,11 @@ import glob
 
 def toFind(service):
     services = { 'cpu': "aws*CPUutilization-day.png",
-                'memory': "*memory-day.png"  
+                'memory': "memory-day.png",
+                'eth0': "if_eth0-day.png",
+                'netstat': "netstat-day.png",
+                'load': "load-day.png",
+                'cpu2': "cpu-day.png"
                 }
     return services.get(service,"nothing")
 
@@ -22,7 +26,6 @@ def getChars(service):
     for char in glob.iglob(charspath + pattern):
         d = char.split('/')
         values = {'site': d[5], 'service': d[6], 'char': d[7] }
-        print(d[6],sdiscard)
         if not d[6] in sdiscard:
             chars[index].append(values)
             aux += 1

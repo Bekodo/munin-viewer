@@ -10,4 +10,4 @@ def service(service="cpu"):
     return render_template('table.html', chars=chars, service=service)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',debug=True)
+    app.run(host='0.0.0.0',debug=False)
