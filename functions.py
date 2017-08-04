@@ -12,7 +12,7 @@ def toFind(service):
 
 def siteDiscard():
     with open('sites.cfg') as file:
-        sites = file.read().split(",")
+        sites = file.read().splitlines()
         return sites
 
 def getChars(service):
