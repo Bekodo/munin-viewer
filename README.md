@@ -18,3 +18,7 @@ location ~* ^/(viewer|static) {
 	proxy_pass http://localhost:5000;
 }
 ```
+
+LICENSE
+
+This source files are made available under the terms of the GNU Affero General Public License (GNU AGPLv3).
