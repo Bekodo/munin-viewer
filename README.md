@@ -19,6 +19,19 @@ location ~* ^/(viewer|static) {
 }
 ```
 
+*Service config*
+
+Add uwsgi-viewer.service to /etc/systemd/system/
+
+*Start*
+```
+systemctl start uwsgi-viewer
+```
+*Start on boot*
+```
+systemctl enable uwsgi-viewer
+```
+
 LICENSE
 
 This source files are made available under the terms of the GNU Affero General Public License (GNU AGPLv3).
