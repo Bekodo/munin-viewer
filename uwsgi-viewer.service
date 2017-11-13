@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance
+After=network.target
+
+[Service]
+ExecStartPre=-/bin/bash -c 'mkdir -p /var/run/uwsgi; chown -R nginx.nginx /var/run/uwsgi'
+ExecStart=/bin/bash -c 'uwsgi --ini /opt/viewer/uwsgi.ini'
+ExecStop=/bin/bash -c 'uwsgi --stop /var/run/uwsgi/viewer.pid'
+ExecReload=/bin/bash -c 'uwsgi --reload /var/run/uwsgi/viewer.pid'
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
