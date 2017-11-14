@@ -3,34 +3,40 @@
 <META HTTP-EQUIV="Refresh" CONTENT="300">
 <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 <title>{{ service }}</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
 </head>
 <body>
-<p>
-{% if service == 'cpu' %}
-<a href=/viewer/cpu><b>cpu</b></a> <a href=/viewer/memory>memory</a> <a href=/viewer/eth0>eth0</a> <a href=/viewer/netstat>netstat</a> <a href=/viewer/load>load</a> <a href=/viewer/cpu2>cpu2</a>
-{% elif service == 'memory'  %}
-<a href=/viewer/cpu>cpu</a> <a href=/viewer/memory><b>memory</b></a> <a href=/viewer/eth0>eth0</a> <a href=/viewer/netstat>netstat</a> <a href=/viewer/load>load</a> <a href=/viewer/cpu2>cpu2</a>
-{% elif service == 'eth0' %}
-<a href=/viewer/cpu>cpu</a> <a href=/viewer/memory>memory</a> <a href=/viewer/eth0><b>eth0</b></a> <a href=/viewer/netstat>netstat</a> <a href=/viewer/load>load</a> <a href=/viewer/cpu2>cpu2</a>
-{% elif service == 'netstat' %}
-<a href=/viewer/cpu>cpu</a> <a href=/viewer/memory>memory</a> <a href=/viewer/eth0>eth0</a> <a href=/viewer/netstat><b>netstat</b></a> <a href=/viewer/load>load</a> <a href=/viewer/cpu2>cpu2</a>
-{% elif service == 'load'%}
-<a href=/viewer/cpu>cpu</a> <a href=/viewer/memory>memory</a> <a href=/viewer/eth0>eth0</a> <a href=/viewer/netstat>netstat</a> <a href=/viewer/load><b>load</b></a> <a href=/viewer/cpu2>cpu2</a>
-{% elif service == 'cpu2'%}
-<a href=/viewer/cpu>cpu</a> <a href=/viewer/memory>memory</a> <a href=/viewer/eth0>eth0</a> <a href=/viewer/netstat>netstat</a> <a href=/viewer/load>load</a> <a href=/viewer/cpu2><b>cpu2</b></a>
-{% else %}
-<a href=/viewer/cpu>cpu</a> <a href=/viewer/memory>memory</a> <a href=/viewer/eth0>eth0</a> <a href=/viewer/netstat>netstat</a> <a href=/viewer/load>load</a> <a href=/viewer/cpu2>cpu2</a>
-{% endif %}
-</p>
-<table>
-  <tr>
-  {% for cells in chars %}
+<div class="container-fluid">
+<div id="nav">
+<ul class="nav justify-content-center">
+<li class="nav-item">
+<a class="nav-link{{ ' active' if service == 'memory' }}" href="/viewer/memory">memory</a>
+</li>
+<li class="nav-item">
+<a class="nav-link{{ ' active' if service == 'eth0' }}" href="/viewer/eth0">eth0</a>
+</li>
+<li class="nav-item">
+<a class="nav-link{{ ' active' if service == 'netstat' }}" href="/viewer/netstat">netstat</a>
+</li>
+<li class="nav-item">
+<a class="nav-link{{ ' active' if service == 'load' }}" href="/viewer/load">load</a>
+</li>
+<li class="nav-item">
+<a class="nav-link{{ ' active' if service == 'cpu' }}" href="/viewer/cpu">cpu</a>
+</li>
+</ul>
+</div>
+<div id="content" class="row">
+{% for cells in chars %}
   	{% for cell in cells %}
-	<td><div style=" position: relative; height: 0; left: 110px; top: 70px; font-size: 35px; "><a href="/munin/{{ cell.site }}/{{ cell.service }}/">{{ cell.service }}</a></div><img src="/munin/{{ cell.site }}/{{ cell.service }}/{{ cell.char }}" width="380" ></td>
-	 {% endfor %}
-  </tr>
-  {% endfor %}
-</table>
+	<div class="col col-sm-6 col-md-6 col-lg-4 chart-container">
+	<div><a href="/munin/{{ cell.site }}/{{ cell.service }}/">{{ cell.service }}</a></div>
+	<img src="/munin/{{ cell.site }}/{{ cell.service }}/{{ cell.char }}" class="img-fluid">
+	</div>
+	{% endfor %}
+{% endfor %}
+</div>
+</div>
 </body>
 </html>
