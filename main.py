@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 import functions
 
-app = Flask(__name__)
+app = Flask(__name__,static_url_path='/viewer/static')
 
 @app.route('/viewer/')
 @app.route('/viewer/<service>')
