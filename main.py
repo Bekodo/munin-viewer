@@ -5,7 +5,7 @@ app = Flask(__name__,static_url_path='/munin/viewer/static')
 
 @app.route('/munin/viewer/')
 @app.route('/munin/viewer/<service>')
-def service(service="cpu"):
+def service(service="cpu2"):
     chars = functions.getChars(service)
     return render_template('table.html', chars=chars, service=service)
 
