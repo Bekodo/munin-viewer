@@ -4,9 +4,9 @@ After=network.target
 
 [Service]
 ExecStartPre=-/bin/bash -c 'mkdir -p /var/run/uwsgi; chown -R nginx.nginx /var/run/uwsgi'
-ExecStart=/bin/bash -c 'uwsgi --ini /opt/viewer/uwsgi.ini'
-ExecStop=/bin/bash -c 'uwsgi --stop /var/run/uwsgi/viewer.pid'
-ExecReload=/bin/bash -c 'uwsgi --reload /var/run/uwsgi/viewer.pid'
+ExecStart=/bin/bash -c 'uwsgi --ini /opt/munin-viewer/uwsgi.ini'
+ExecStop=/bin/bash -c 'uwsgi --stop /var/run/uwsgi/munin-viewer.pid'
+ExecReload=/bin/bash -c 'uwsgi --reload /var/run/uwsgi/munin-viewer.pid'
 Restart=always
 
 [Install]
