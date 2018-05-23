@@ -27,11 +27,11 @@
 </li>
 </ul>
 </div>
-<div id="content" class="row">
+<div id="content" class="row custom-col-padding-5">
 {% for cells in chars %}
   	{% for cell in cells %}
 	<div class="col col-sm-6 col-md-6 col-lg-4 chart-container">
-	<div><a href="/munin/{{ cell.site }}/{{ cell.service }}/">{{ cell.service }}</a></div>
+	<div class="chart-title"><a href="/munin/{{ cell.site }}/{{ cell.service }}/">{{ cell.service }}</a></div>
 	<img src="/munin/{{ cell.site }}/{{ cell.service }}/{{ cell.char }}" class="img-fluid">
 	</div>
 	{% endfor %}

@@ -1,28 +1,52 @@
 body {
 	font-family: Arial;
 }
-table {
-    border-collapse: collapse;
-}
-th, td {
-    width: 380px;
-}
 a {
-    color: black;
+	color: black;
 }
 a:link {
-    text-decoration: none;
+	text-decoration: none;
 }
 a:visited {
-    text-decoration: none;
+	text-decoration: none;
 }
 a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 a:active {
-    text-decoration: underline;
+	text-decoration: underline;
+}
+
+
+/* Not being used */
+table {
+	border-collapse: collapse;
+}
+th, td {
+	width: 380px;
 }
 p {
-    font-size: 30px;
-    text-align: center;
+	font-size: 30px;
+	text-align: center;
+}
+
+
+/* New styles */
+.nav{
+	font-size: 1.75rem;
+	font-weight: bold;
+}
+.chart-title{
+	text-align: center;
+	font-size: 1.25rem;
+}
+.custom-col-padding-5 .col{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.custom-col-padding-5 .col:first-child{
+	padding-left: 15px;
+}
+.custom-col-padding-5 .col:last-child{
+	padding-right: 15px;
 }
