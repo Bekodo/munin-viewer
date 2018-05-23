@@ -36,8 +36,10 @@ p {
 	font-size: 1.75rem;
 	font-weight: bold;
 }
-.chart-title{
+.chart-container{
 	text-align: center;
+}
+.chart-title{
 	font-size: 1.25rem;
 }
 .custom-col-padding-5 .col{
