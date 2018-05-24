@@ -1,8 +1,9 @@
 import glob
 import configparser
+from collections import OrderedDict
 
 def getConf():
-    services = {}
+    services = OrderedDict()    
     config = configparser.RawConfigParser()
     config.read('services.ini')
     for key in config.items('services'):
