@@ -10,24 +10,11 @@
 <div class="container-fluid">
 <div id="nav">
 <ul class="nav justify-content-center">
-<li class="nav-item">
-<a class="nav-link{{ ' active' if service == 'cpu' }}" href="/munin/viewer/cpu2">cpu2</a>
-</li>
-<li class="nav-item">
-<a class="nav-link{{ ' active' if service == 'memory' }}" href="/munin/viewer/memory">memory</a>
-</li>
-<li class="nav-item">
-<a class="nav-link{{ ' active' if service == 'eth0' }}" href="/munin/viewer/eth0">eth0</a>
-</li>
-<li class="nav-item">
-<a class="nav-link{{ ' active' if service == 'netstat' }}" href="/munin/viewer/netstat">netstat</a>
-</li>
-<li class="nav-item">
-<a class="nav-link{{ ' active' if service == 'load' }}" href="/munin/viewer/load">load</a>
-</li>
-<li class="nav-item">
-<a class="nav-link{{ ' active' if service == 'cpu' }}" href="/munin/viewer/cpu">cpu</a>
-</li>
+{% for item in services %}
+  <li class="nav-item">
+    <a class="nav-link{% if service == item %} active{% endif %}" href="/munin/viewer/{{ item }}">{{ item }}</a>
+  </li>
+{% endfor %}
 </ul>
 </div>
 <div id="content" class="row custom-col-padding-5">
