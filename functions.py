@@ -1,13 +1,15 @@
 import glob
+import configparser
 
-def toFind(service):
-    services = { 'cpu': "aws*CPUutilization-day.png",
-                'memory': "memory-day.png",
-                'eth0': "if_eth0-day.png",
-                'netstat': "netstat-day.png",
-                'load': "load-day.png",
-                'cpu2': "cpu-day.png"
-                }
+def getConf():
+    services = {}
+    config = configparser.RawConfigParser()
+    config.read('services.ini')
+    for key in config.items('services'):
+        services[key[0]]=key[1]
+    return services
+
+def toFind(services,service):
     return services.get(service,"nothing")
 
 def siteDiscard():
@@ -22,7 +24,8 @@ def getChars(service):
     aux = 0
     chars.append([])
     sdiscard = siteDiscard()
-    pattern = toFind(service)
+    services = getConf()
+    pattern = toFind(services,service)
     for char in glob.iglob(charspath + pattern):
         d = char.split('/')
         values = {'site': d[5], 'service': d[6], 'char': d[7] }
