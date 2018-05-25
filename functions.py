@@ -10,9 +10,6 @@ def getConf():
         services[key[0]]=key[1]
     return services
 
-def toFind(services,service):
-    return services.get(service,"nothing")
-
 def siteDiscard():
     with open('sites.cfg') as file:
         sites = file.read().splitlines()
@@ -25,7 +22,7 @@ def getChars(services,service):
     aux = 0
     chars.append([])
     sdiscard = siteDiscard()
-    pattern = toFind(services,service)
+    pattern = services.get(service,"nothing")
     for char in glob.iglob(charspath + pattern):
         d = char.split('/')
         values = {'site': d[5], 'service': d[6], 'char': d[7] }
