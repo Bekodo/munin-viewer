@@ -3,7 +3,7 @@ import configparser
 from collections import OrderedDict
 
 def getConf():
-    services = OrderedDict()    
+    services = OrderedDict()
     config = configparser.RawConfigParser()
     config.read('services.ini')
     for key in config.items('services'):
@@ -18,14 +18,13 @@ def siteDiscard():
         sites = file.read().splitlines()
         return sites
 
-def getChars(service):
+def getChars(services,service):
     chars = []
     charspath = "/var/www/html/munin/*/*/"
     index = 0
     aux = 0
     chars.append([])
     sdiscard = siteDiscard()
-    services = getConf()
     pattern = toFind(services,service)
     for char in glob.iglob(charspath + pattern):
         d = char.split('/')
