@@ -20,16 +20,11 @@ def getChars(services,service):
     charspath = "/var/www/html/munin/*/*/"
     index = 0
     aux = 0
-    chars.append([])
     sdiscard = siteDiscard()
     pattern = services.get(service,"nothing")
     for char in glob.iglob(charspath + pattern):
         d = char.split('/')
         values = {'site': d[5], 'service': d[6], 'char': d[7] }
         if not d[6] in sdiscard:
-            chars[index].append(values)
-            aux += 1
-            if (aux % 4) == 0:
-                index += 1
-                chars.append([])
+            chars.append(values)
     return chars
