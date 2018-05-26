@@ -1,6 +1,7 @@
 Web viewer of munin graph, all in the same page
 
 *Install python 3.5 and flask*
+
 In the file services.ini add the listo of services to view and the file png path
 ```
 [services]
