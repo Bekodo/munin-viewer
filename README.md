@@ -39,9 +39,11 @@ systemctl enable uwsgi-viewer
 *PrintScreens*
 
 **Desktop**
+
 ![Desktop](Doc/img/Desktop_example.png?raw=true)
 
 **Mobile|Table**
+
 ![Mobile](Doc/img/Responsive_example.png?raw=true)
 
 LICENSE
