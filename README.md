@@ -16,28 +16,32 @@ server2
 server3
 ```
 
-*Nginx config*
+*Apache munin.conf config*
 ```
-location ~* ^/(viewer|static) {
-	proxy_set_header X-Real-IP  $remote_addr;
-	proxy_set_header X-Forwarded-For $remote_addr;
-	proxy_set_header Host $host;
-	proxy_pass http://localhost:5005;
-}
+ProxyPass         /munin/viewer  http://localhost:5005/munin/viewer nocanon
+ProxyPassReverse  /munin/viewer  http://localhost:5005/munin/viewer
+ProxyRequests     Off
 ```
 
 *Service config*
-
 Add uwsgi-viewer.service to /etc/systemd/system/
 
 *Start*
 ```
 systemctl start uwsgi-viewer
 ```
+
 *Start on boot*
 ```
 systemctl enable uwsgi-viewer
 ```
+
+*printscreens*
+**Desktop**
+[[https://github.com/Bekodo/munin-viewer/blob/master/Doc/img/Desktop_example.png|alt=Desktop]]
+
+**Mobile|Table**
+[[https://github.com/Bekodo/munin-viewer/blob/master/Doc/img/Responsive_example.png|alt=Mobile]]
 
 LICENSE
 
