@@ -36,12 +36,13 @@ systemctl start uwsgi-viewer
 systemctl enable uwsgi-viewer
 ```
 
-*printscreens*
+*PrintScreens*
+
 **Desktop**
-[[https://github.com/Bekodo/munin-viewer/blob/master/Doc/img/Desktop_example.png|alt=Desktop]]
+![Desktop](master/Doc/img/Desktop_example.png?raw=true)
 
 **Mobile|Table**
-[[https://github.com/Bekodo/munin-viewer/blob/master/Doc/img/Responsive_example.png|alt=Mobile]]
+![Mobile](master/Doc/img/esponsive_example.png?raw=true)
 
 LICENSE
 
