@@ -2,25 +2,24 @@ import glob
 import configparser
 from collections import OrderedDict
 
-def getConf():
-    services = OrderedDict()
-    config = configparser.RawConfigParser()
+def getConf(type):
+    if (type == 'services'):
+        section = 'services'
+    else :
+        section = 'discart_servers'
+    elements = OrderedDict()
+    config = configparser.RawConfigParser(allow_no_value=True)
     config.read('services.ini')
-    for key in config.items('services'):
-        services[key[0]]=key[1]
-    return services
-
-def siteDiscard():
-    with open('sites.cfg') as file:
-        sites = file.read().splitlines()
-        return sites
+    for key in config.items(section):
+        elements[key[0]]=key[1]
+    return elements
 
 def getChars(services,service):
     chars = []
     charspath = "/var/www/html/munin/*/*/"
     index = 0
     aux = 0
-    sdiscard = siteDiscard()
+    sdiscard = getConf('servers')
     pattern = services.get(service,"nothing")
     for char in glob.iglob(charspath + pattern):
         d = char.split('/')
