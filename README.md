@@ -42,7 +42,7 @@ systemctl enable uwsgi-viewer
 ![Desktop](Doc/img/Desktop_example.png?raw=true)
 
 **Mobile|Table**
-![Mobile](Doc/img/esponsive_example.png?raw=true)
+![Mobile](Doc/img/Responsive_example.png?raw=true)
 
 LICENSE
 
