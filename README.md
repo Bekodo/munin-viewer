@@ -9,7 +9,7 @@ cpu=cpu-day.png
 memory=memory-day.png
 ```
 
-In file services.ini add the list of servers in the discart_servers section to remove view
+In file services.ini add the list of servers in the discart_servers section to remove them from of view
 ```
 [discard_servers]
 loalhost
