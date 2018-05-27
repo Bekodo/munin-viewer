@@ -6,7 +6,7 @@ def getConf(type):
     if (type == 'services'):
         section = 'services'
     else :
-        section = 'discart_servers'
+        section = 'discard_servers'
     elements = OrderedDict()
     config = configparser.RawConfigParser(allow_no_value=True)
     config.read('services.ini')
