@@ -2,16 +2,17 @@ Web viewer of munin graph, all in the same page
 
 *Install python 3.5 and flask*
 
-In the file services.ini add the listo of services to view and the file png path
+In file services.ini add the list of services in the services section to view and the file png path
 ```
 [services]
 cpu=cpu-day.png
 memory=memory-day.png
 ```
 
-In the file site.cfg add the list of servers to discard
+In file services.ini add the list of servers in the discart_servers section to remove view
 ```
-server1
+[discard_servers]
+loalhost
 server2
 server3
 ```
