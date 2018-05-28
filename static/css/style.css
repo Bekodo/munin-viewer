@@ -36,6 +36,11 @@ p {
 	font-size: 1.75rem;
 	font-weight: bold;
 }
+@media (min-width: 767px) {
+	.nav{
+		font-size: 3rem;
+	}
+}
 .chart-container{
 	text-align: center;
 }

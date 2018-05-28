@@ -9,10 +9,10 @@
 <body>
 <div class="container-fluid">
 <div id="nav">
-<ul class="nav justify-content-center">
+<ul class="nav nav-tabs justify-content-center">
 {% for item in services %}
   <li class="nav-item">
-    <a class="nav-link{% if service == item %} active{% endif %}" href="/munin/viewer/{{ item }}">{{ item }}</a>
+    <a class="nav-link{% if service == item %} active{% else %} disabled{% endif %}" href="/munin/viewer/{{ item }}">{{ item }}</a>
   </li>
 {% endfor %}
 </ul>
