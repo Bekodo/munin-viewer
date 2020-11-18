@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import functions
+import sys
 
 app = Flask(__name__,static_url_path='/munin/viewer/static')
 
@@ -11,7 +12,11 @@ def service(service="cpu2"):
     template_data = {'services':services}
     template_data['service']=service
     template_data['chars']=chars
-    return render_template('table.html', **template_data)
+    if service == 'extra':
+        return render_template('table_extra.html', **template_data)
+    else:
+        return render_template('table.html', **template_data)
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5005,debug=False)

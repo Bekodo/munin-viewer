@@ -1,0 +1,27 @@
+<html>
+<head>
+<META HTTP-EQUIV="Refresh" CONTENT="300">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ service }}</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+<div class="container-fluid">
+<div id="nav">
+<ul class="nav nav-tabs justify-content-center">
+{% for item in services %}
+  <li class="nav-item">
+    <a class="nav-link{% if service == item %} active{% else %} disabled{% endif %}" href="/munin/viewer/{{ item }}">{{ item }}</a>
+  </li>
+{% endfor %}
+</ul>
+</div>
+{% block content %}
+
+{% endblock %}
+</div>
+</div>
+</body>
+</html>

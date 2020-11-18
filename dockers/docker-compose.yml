@@ -1,0 +1,17 @@
+
+version: "3"
+services:
+  munin-viewer:
+    image: muninviewer:latest
+    volumes:
+      - ../:/opt/munin-viewer
+      - /opt/local/www/apache2/html/munin:/var/www/html/munin
+    ports:
+      - "5000:5000"
+    environment:
+      - DOCUMENTROOT=/var/www/html/munin
+      - FLASK_ENV=development
+      - FLASK_APP=main.py
+
+    # command: tail -f /var/log/dnf.log
+    command: flask run --host=0.0.0.0

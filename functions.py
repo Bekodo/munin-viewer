@@ -1,6 +1,8 @@
 import glob
 import configparser
 from collections import OrderedDict
+import settings
+import sys
 
 def getConf(type):
     if (type == 'services'):
@@ -12,11 +14,12 @@ def getConf(type):
     config.read('services.ini')
     for key in config.items(section):
         elements[key[0]]=key[1]
+    elements['extra']=''
     return elements
 
 def getChars(services,service):
     chars = []
-    charspath = "/var/www/html/munin/*/*/"
+    charspath = settings.DOCUMENTROOT + "/*/*/"
     index = 0
     aux = 0
     sdiscard = getConf('servers')
